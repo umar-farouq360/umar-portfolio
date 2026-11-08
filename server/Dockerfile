@@ -26,8 +26,7 @@ FROM base AS build
 #    only when a package.json or the lockfile changes, not on every code edit.
 COPY pnpm-lock.yaml pnpm-workspace.yaml package.json ./
 COPY server/package.json server/
-RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
-    pnpm install --frozen-lockfile --filter @umar-portfolio/server...
+RUN pnpm install --frozen-lockfile --filter @umar-portfolio/server...
 # 2) Source, then compile TypeScript -> server/dist
 COPY server/ server/
 RUN pnpm --filter @umar-portfolio/server build

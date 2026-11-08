@@ -17,8 +17,7 @@ WORKDIR /repo
 
 COPY pnpm-lock.yaml pnpm-workspace.yaml package.json ./
 COPY client/package.json client/
-RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
-    pnpm install --frozen-lockfile --filter @umar-portfolio/client...
+RUN pnpm install --frozen-lockfile --filter @umar-portfolio/client...
 COPY client/ client/
 # `build` runs the type check first, then Vite writes static files to client/dist.
 RUN pnpm --filter @umar-portfolio/client build

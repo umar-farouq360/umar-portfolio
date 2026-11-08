@@ -1,10 +1,13 @@
-# Caddy: web server + reverse proxy + automatic HTTPS in one file.
+# Caddy: web server + reverse proxy for static React client.
 #
-# SITE_ADDRESS comes from the environment (docker-compose.prod.yml):
-#   - a real domain  (portfolio.example.com) -> Caddy gets a free Let's Encrypt
-#     certificate by itself and redirects HTTP to HTTPS
-#   - "localhost" or ":80"                    -> for testing on your own machine
-{$SITE_ADDRESS:localhost} {
+# When running behind a reverse proxy/PaaS like Railway, TLS is handled at the
+# platform edge, so auto_https is off and Caddy listens on {$PORT:80}.
+# In Docker Compose, {$API_UPSTREAM} defaults to server:5000.
+{
+	auto_https {$CADDY_AUTO_HTTPS:off}
+}
+
+:{$PORT:80} {
 	encode zstd gzip
 
 	header {
@@ -23,11 +26,9 @@
 	@admin path /admin /admin/*
 	header @admin X-Robots-Tag "noindex, nofollow"
 
-	# Everything under /api goes to the Express server on the internal Docker
-	# network. The browser only ever talks to this one origin, which is why the
-	# login cookie "just works" without any CORS or cross-site cookie setup.
+	# Everything under /api goes to the Express server on the internal network.
 	handle /api/* {
-		reverse_proxy server:5000
+		reverse_proxy {$API_UPSTREAM:server:5000}
 	}
 
 	# Everything else is the React app. Unknown paths (like /projects/my-project
@@ -36,9 +37,7 @@
 		root * /srv
 		# Hashed assets (/assets/app-3f9a1c.js) never change, so cache them forever.
 		# Everything else (index.html, favicon) is revalidated on every visit so a
-		# new deploy shows up immediately. The two rules use opposite matchers on
-		# purpose: Caddy orders same-named directives by matcher specificity, not
-		# by where they appear, so "default first, override second" would NOT work.
+		# new deploy shows up immediately.
 		@assets path /assets/*
 		@pages not path /assets/*
 		header @assets Cache-Control "public, max-age=31536000, immutable"
