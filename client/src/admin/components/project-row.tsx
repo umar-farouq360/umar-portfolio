@@ -69,6 +69,7 @@ export function ProjectRow({
         <Switch
           checked={project.featured}
           disabled={busy}
+          title={project.featured ? "Featured on homepage (switched ON)" : "Not featured (switched OFF)"}
           aria-label={`Show ${project.name} on the homepage`}
           onCheckedChange={() => {
             onToggleFeatured();
