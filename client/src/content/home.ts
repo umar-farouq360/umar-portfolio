@@ -1,4 +1,4 @@
-export const CV_URL = "/umar-farouq-cv.pdf";
+export const CV_URL = "/umar-farouq-ibrahim-cv.pdf";
 
 export interface NavLink {
   label: string;
