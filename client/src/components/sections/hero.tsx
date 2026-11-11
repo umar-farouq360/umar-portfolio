@@ -65,6 +65,7 @@ export function Hero() {
             </LinkButton>
             <LinkButton
               href={HERO.secondaryCta.href}
+              download
               variant="ghost"
               icon={<ArrowUpRight size={12} />}
             >
