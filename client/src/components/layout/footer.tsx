@@ -1,5 +1,5 @@
-import { ArrowUpRight }   from "lucide-react";
-import { FOOTER_NOTE }    from "@/content/home";
+import { ArrowUpRight, Download } from "lucide-react";
+import { CV_URL, FOOTER_NOTE }    from "@/content/home";
 import { getSocialLinks } from "@/config/site";
 import { Container }      from "@/components/ui/container";
 import { Wordmark }       from "@/components/ui/wordmark";
@@ -19,34 +19,36 @@ export function Footer() {
         <p className="text-micro tracking-label text-fg-muted uppercase">
           {FOOTER_NOTE} © {new Date().getFullYear()}
         </p>
-        {links.length > 0 ? (
-          <nav
-            aria-label="Social"
-            className="md:basis-full lg:basis-auto lg:justify-self-end"
-          >
-            <ul className="flex items-center gap-5">
-              {links.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className={buttonClasses("ghost")}
-                    {...(link.external
-                      ? { target: "_blank", rel: "noopener noreferrer" }
-                      : {})}
-                  >
-                    {link.label}
-                    {link.external ? (
-                      <span className="sr-only"> (opens in a new tab)</span>
-                    ) : null}
-                    <ArrowUpRight aria-hidden size={11} />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        ) : (
-          <span aria-hidden />
-        )}
+        <nav
+          aria-label="Footer links"
+          className="md:basis-full lg:basis-auto lg:justify-self-end"
+        >
+          <ul className="flex flex-wrap items-center gap-5">
+            <li>
+              <a href={CV_URL} download className={buttonClasses("ghost")}>
+                Download CV
+                <Download aria-hidden size={12} />
+              </a>
+            </li>
+            {links.map((link) => (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  className={buttonClasses("ghost")}
+                  {...(link.external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                >
+                  {link.label}
+                  {link.external ? (
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  ) : null}
+                  <ArrowUpRight aria-hidden size={11} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </Container>
     </footer>
   );
