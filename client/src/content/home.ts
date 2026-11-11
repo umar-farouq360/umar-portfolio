@@ -1,3 +1,5 @@
+export const CV_URL = "/umar-farouq-cv.pdf";
+
 export interface NavLink {
   label: string;
   href: string;
@@ -16,7 +18,7 @@ export const HERO = {
   intro:
     "I’m Umar Farouq, a software developer and product builder. I turn ideas into useful web products, working across the interface, backend, and the engineering decisions that make them reliable.",
   primaryCta: { label: "Explore my work", href: "#work" },
-  secondaryCta: { label: "More about me", href: "#about" },
+  secondaryCta: { label: "Download CV", href: CV_URL },
   visual: {
     top: "Independently built / 001",
     caption: "Systems thinking",
