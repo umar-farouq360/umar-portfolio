@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { m, useReducedMotion } from "framer-motion";
 import { Menu }         from "lucide-react";
-import { NAV_LINKS }    from "@/content/home";
+import { CV_URL, NAV_LINKS } from "@/content/home";
 import { Container }    from "@/components/ui/container";
 import { ThemeToggle }  from "@/components/ui/theme-toggle";
 import { Wordmark }     from "@/components/ui/wordmark";
@@ -65,6 +65,13 @@ export function Header() {
           </m.ul>
         </nav>
         <div className="flex items-center gap-3 md:justify-self-end">
+          <a
+            href={CV_URL}
+            download
+            className="hidden text-caption font-semibold tracking-[0.04em] text-fg uppercase transition-colors hover:text-accent-text focus-visible:text-accent-text md:inline-flex"
+          >
+            Download CV
+          </a>
           <div className="hidden md:block">
             <ThemeToggle />
           </div>
