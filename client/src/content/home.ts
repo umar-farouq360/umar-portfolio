@@ -10,11 +10,11 @@ export const NAV_LINKS: readonly NavLink[] = [
 ];
 
 export const HERO = {
-  availability: "Available for select projects",
-  lines: ["I build digital", "products that"],
-  highlight: "mean something.",
+  availability: "Open to software engineering opportunities and meaningful collaborations",
+  lines: ["I build software", "for real-world"],
+  highlight: "problems.",
   intro:
-    "I’m Umar Farouq — a software engineer and product-minded builder turning thoughtful ideas into useful, dependable experiences on the web.",
+    "I’m Umar Farouq, a software developer and product builder. I turn ideas into useful web products, working across the interface, backend, and the engineering decisions that make them reliable.",
   primaryCta: { label: "Explore my work", href: "#work" },
   secondaryCta: { label: "More about me", href: "#about" },
   visual: {
