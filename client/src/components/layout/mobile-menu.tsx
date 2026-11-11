@@ -2,8 +2,8 @@ import {
     useEffect, useRef, 
     type KeyboardEvent, 
     type RefObject }    from "react";
-import { X }            from "lucide-react";
-import { NAV_LINKS }    from "@/content/home";
+import { Download, X }            from "lucide-react";
+import { CV_URL, NAV_LINKS }    from "@/content/home";
 import { Container }    from "@/components/ui/container";
 import { ThemeToggle }  from "@/components/ui/theme-toggle";
 import { Wordmark }     from "@/components/ui/wordmark";
@@ -128,6 +128,18 @@ export function MobileMenu({
                 </a>
               </li>
             ))}
+            <li className="border-b border-border">
+              <a
+                href={CV_URL}
+                download
+                onClick={() => onClose(false)}
+                className="flex items-center gap-5 py-5 font-display text-[2rem] leading-none font-bold text-fg uppercase transition-colors hover:text-accent-text focus-visible:text-accent-text active:text-accent-text"
+              >
+                <span className="w-6 text-label font-medium tracking-label text-accent-text">04</span>
+                Download CV
+                <Download aria-hidden size={18} />
+              </a>
+            </li>
           </ul>
         </Container>
       </nav>
