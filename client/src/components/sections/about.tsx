@@ -34,6 +34,13 @@ export function About() {
             >
               {ABOUT.body}
             </Reveal>
+            <Reveal
+              as="p"
+              delay={0.16}
+              className="mt-4 max-w-160 text-micro leading-relaxed tracking-label text-fg-subtle uppercase lg:mt-5"
+            >
+              {ABOUT.credibility}
+            </Reveal>
           </div>
 
           <ol aria-label="Principles" className="self-start">
