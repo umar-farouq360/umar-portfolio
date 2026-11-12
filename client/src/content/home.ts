@@ -17,7 +17,7 @@ export const HERO = {
   highlight: "problems.",
   intro:
     "I’m Umar Farouq, a software developer and product builder. I turn ideas into useful web products, working across the interface, backend, and the engineering decisions that make them reliable.",
-  primaryCta: { label: "Explore my work", href: "#work" },
+  primaryCta: { label: "View selected work", href: "#work" },
   secondaryCta: { label: "Download CV", href: CV_URL },
   visual: {
     top: "Independently built / 001",
@@ -33,9 +33,9 @@ export interface Metric {
 }
 
 export const METRICS: readonly Metric[] = [
-  { value: "More soon", label: "New work is on the way", accent: true },
-  { value: "Full-stack", label: "From data to interface" },
-  { value: "Building", label: "With purpose, not just hype" },
+  { value: "End to end", label: "From product thinking to production", accent: true },
+  { value: "Full stack", label: "Frontend, backend, and data" },
+  { value: "Independent builder", label: "Taking products from idea to deployment" },
 ];
 
 export const METRICS_HINT = { label: "Scroll to explore", href: "#work" } as const;
@@ -44,7 +44,7 @@ export const WORK = {
   eyebrow: "Selected work / 2024—2026",
   title: "A few things I’ve built.",
   description:
-    "Real problems. Considered solutions. A little obsession with the details.",
+    "A selection of products I’ve designed, built, and taken toward real use.",
   emptyMessage: "New projects are on the way.",
 } as const;
 
@@ -56,19 +56,21 @@ export interface Principle {
 export const ABOUT = {
   eyebrow: "A little about how I work",
   titleLines: ["Engineering is the tool.", "Impact is the point."],
-  body: "I care about the space between a good idea and a product people can rely on. That means understanding the problem, making deliberate technical choices, and sweating the details that make software feel right.",
+  body: "I’m a Computer Science graduate from Ahmadu Bello University and an independent software developer who enjoys taking products from a rough idea to a working release. I care about understanding the problem before choosing the tools, building systems that are maintainable, and making the experience clear for the people using them.",
+  credibility:
+    "Computer Science, ABU Zaria · Former NACOS Department President · Independent Product Builder",
   principles: [
     {
       title: "Product thinking",
-      body: "Start with the why. Build for a real person.",
+      body: "Understand the user and the problem before choosing a solution.",
     },
     {
-      title: "Engineering rigor",
-      body: "Simple architecture. Clear boundaries. Reliable systems.",
+      title: "Engineering discipline",
+      body: "Clear boundaries, maintainable code, and dependable systems.",
     },
     {
-      title: "Details matter",
-      body: "Accessible, responsive, considered experiences.",
+      title: "Ownership",
+      body: "Take responsibility from the first sketch through deployment and iteration.",
     },
   ] satisfies readonly Principle[],
 } as const;
@@ -76,25 +78,30 @@ export const ABOUT = {
 export const TOOLKIT = {
   eyebrow: "Tools I reach for",
   title: "A practical toolkit.",
-  items: [
-    "TYPESCRIPT",
-    "NEXT.JS",
-    "REACT",
-    "NODE JS",
-    "EXPRESS",
-    "POSTGRESQL",
-    "DRIZZLE ORM",
-    "REDIS",
-    "DOCKER",
-    "REST APIs",
-    "GRAPHQL",
+  groups: [
+    {
+      label: "Frontend",
+      items: ["REACT", "TYPESCRIPT", "NEXT.JS", "TAILWIND CSS"],
+    },
+    {
+      label: "Backend",
+      items: ["NODE.JS", "EXPRESS", "REST APIs", "GRAPHQL"],
+    },
+    {
+      label: "Data",
+      items: ["POSTGRESQL", "REDIS", "DRIZZLE ORM"],
+    },
+    {
+      label: "Delivery",
+      items: ["DOCKER", "GIT", "GITHUB"],
+    },
   ],
 } as const;
 
 export const CONTACT = {
   eyebrow: "Have a good problem?",
   titleLines: ["Let’s make", "something useful."],
-  body: "Open to thoughtful collaborations, product ideas and engineering conversations.",
+  body: "Have a product idea, an engineering opportunity, or a problem worth solving? I’d be glad to talk.",
   cta: "Start a conversation",
 } as const;
 
