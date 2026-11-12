@@ -8,14 +8,12 @@ interface SiteConfig {
   linkedin: string;
 }
 
-// TODO(umar): fill in your real links. Anything left empty is simply not
-// rendered, so there are never buttons that point nowhere.
 export const SITE: SiteConfig = {
   name: "Umar Farouq",
-  wordmark: "TAMBARI.",
-  email: "umarmubay360@gmail.com",
-  github: "https://github.com/UmarTambari360",
-  linkedin: "https://linkedin.com/in/umar-farouq",
+  wordmark: "UMAR FAROUQ.",
+  email: "umarfarouqibrahim360@gmail.com",
+  github: "https://github.com/umar-farouq360",
+  linkedin: "https://linkedin.com/in/umar-farouq-ibrahim-7b861a44a",
 };
 
 export interface SocialLink {
